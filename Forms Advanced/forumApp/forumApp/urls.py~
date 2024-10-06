@@ -1,0 +1,22 @@
+from tkinter.font import names
+
+from django.contrib import admin
+from django.db.models.signals import post_delete
+from django.urls import path, include
+
+import forumApp
+from forumApp.posts.views import index, dashboard, add_post, edit_post, delete_post, details_post
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', index, name='index'),
+    path('dashboard/', dashboard, name='dashboard'),
+    path('add-post/', add_post, name='add-post'),
+    path('<int:pk>/', include([
+        path('delete-post/', delete_post, name='delete-post'),
+        path('details-post/', details_post, name='details-post'),
+        path('edit-post/', edit_post, name='edit-post'),
+    ])
+         )
+
+]
