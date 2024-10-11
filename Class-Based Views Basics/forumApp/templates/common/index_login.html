@@ -1,0 +1,15 @@
+{% extends 'common/base.html' %}
+{% load crispy_forms_tags %}
+{% load uppercase %}
+
+{% block main_content %}
+    {% uppercase %}
+        <h1>Hello user!</h1>
+    {% enduppercase %}
+    
+        <h1>You are logged in as {{ user }}</h1>
+    {{ static_time }}
+    <br>
+    {{ dynamic_time|date:"d.m.Y H:i:s" }}
+
+{% endblock %}
