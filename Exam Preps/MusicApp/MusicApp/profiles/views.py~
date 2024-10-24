@@ -1,0 +1,18 @@
+from django.views.generic import DetailView
+from MusicApp.utills import get_user_obj
+
+
+
+class ProfileDetailView(DetailView):
+    template_name = 'profiles/profile-details.html'
+
+    def get_object(self, queryset=None):
+        return get_user_obj()
+
+
+def edit_profile(request):
+    pass
+
+
+def delete_profile(request):
+    pass

@@ -1,0 +1,14 @@
+{% load get_user %}
+
+
+<h1><a class="index-navigation" href="{% url 'index' %}">Tasty Recipes</a></h1>
+<nav>
+{% get_user as profile %}
+{% if not profile %}
+    <a href="{% url 'create_profile' %}">Create Profile</a>
+{% else %}
+    <a href="{% url 'catalogue' %}">Catalogue</a>
+    <a href="{% url 'create_recipe' profile.pk %}">Create Recipe</a>
+    <a href="{% url 'profile_details' %}">Profile</a>
+    {% endif %}
+</nav>

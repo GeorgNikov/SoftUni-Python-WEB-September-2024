@@ -1,0 +1,12 @@
+{% load get_user %}
+
+<nav>
+    {% get_user as profile %}
+    {% if not profile %}
+        <a href="{% url 'create profile' %}">Create Profile</a>
+    {% else %}
+        <a href="{% url 'catalogue' %}">Catalogue</a>
+        <a href="{% url 'create plant' %}">Create Plant</a>
+        <a href="{% url 'profile details' %}">Profile</a>
+    {% endif %}
+</nav>
